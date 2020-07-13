@@ -231,6 +231,311 @@
             }
         });
 
+        //Menambahkan dan Menampilkan Peta Riwayat Longsor 2015
+        // idnya sama kan
+        document.getElementById("dataid6").addEventListener("change", function() {
+            if (document.getElementById(this.id).checked == true) {
+
+                document.getElementById('titleMode').innerText = 'Peta Riwayat Longsor 2015';
+
+                //Ambil geojson desa lamongan
+                getPetalongsor("2015", function(data) {
+
+                    $.each(me.dataKelurahan.features, function(num, value) {
+
+                        var kelurahan = value.properties.Kelurahan;
+                        var warna = getHistoryColor(data, kelurahan);
+                        var riwayatlayer;
+            
+                        //Menghilangkan efek higlight saat mouse out
+                        function resetHighlight(e) {
+                            riwayatlayer.resetStyle(e.target);
+                        }
+            
+                        //Menambahkan efek pada setiap layer
+                        var riwayatlayer = L.geoJson(value, {
+                            onEachFeature: function(features, layer) {
+                                layer.on({
+                                    mouseover: highlightFeature,
+                                    mouseout: resetHighlight,
+                                    click: zoomToFeature
+                                });
+                            },
+                            //Memberikan style dan getColorRiwayat
+                            style: function(features) {
+                                return {
+                                    weight: 2,
+                                    opacity: 1,
+                                    color: 'white', //default warna e iki
+                                    dashArray: '3',
+                                    fillOpacity: 0.7,
+                                    fillColor: warna
+                                };
+                            }
+            
+                        }).addTo(map);
+
+                        if(warna == ''){
+                            riwayatlayer.remove(map);
+                        }
+
+                        map.fitBounds(riwayatlayer.getBounds());
+            
+                        //Menambahkan pop out nama desa
+                        riwayatlayer.bindPopup(function(e) {
+                            return kelurahan;
+                        });
+                    });
+                });
+            } else {
+                riwayatlayer.remove(map);
+            }
+        });
+
+        //Menambahkan dan Menampilkan Peta Riwayat Longsor 2016
+        // idnya sama kan
+        document.getElementById("dataid8").addEventListener("change", function() {
+            if (document.getElementById(this.id).checked == true) {
+
+                document.getElementById('titleMode').innerText = 'Peta Riwayat Longsor 2016';
+
+                //Ambil geojson desa lamongan
+                getPetalongsor("2016", function(data) {
+
+                    $.each(me.dataKelurahan.features, function(num, value) {
+
+                        var kelurahan = value.properties.Kelurahan;
+                        var warna = getHistoryColor(data, kelurahan);
+                        var riwayatlayer;
+            
+                        //Menghilangkan efek higlight saat mouse out
+                        function resetHighlight(e) {
+                            riwayatlayer.resetStyle(e.target);
+                        }
+            
+                        //Menambahkan efek pada setiap layer
+                        var riwayatlayer = L.geoJson(value, {
+                            onEachFeature: function(features, layer) {
+                                layer.on({
+                                    mouseover: highlightFeature,
+                                    mouseout: resetHighlight,
+                                    click: zoomToFeature
+                                });
+                            },
+                            //Memberikan style dan getColorRiwayat
+                            style: function(features) {
+                                return {
+                                    weight: 2,
+                                    opacity: 1,
+                                    color: 'white', //default warna e iki
+                                    dashArray: '3',
+                                    fillOpacity: 0.7,
+                                    fillColor: warna
+                                };
+                            }
+            
+                        }).addTo(map);
+
+                        if(warna == ''){
+                            riwayatlayer.remove(map);
+                        }
+
+                        map.fitBounds(riwayatlayer.getBounds());
+            
+                        //Menambahkan pop out nama desa
+                        riwayatlayer.bindPopup(function(e) {
+                            return kelurahan;
+                        });
+                    });
+                });
+            } else {
+                riwayatlayer.remove(map);
+            }
+        });
+
+        //Menambahkan dan Menampilkan Peta Riwayat Longsor 2017
+        // idnya sama kan
+        document.getElementById("dataid9").addEventListener("change", function() {
+            if (document.getElementById(this.id).checked == true) {
+
+                document.getElementById('titleMode').innerText = 'Peta Riwayat Longsor 2017';
+
+                //Ambil geojson desa lamongan
+                getPetalongsor("2017", function(data) {
+
+                    $.each(me.dataKelurahan.features, function(num, value) {
+
+                        var kelurahan = value.properties.Kelurahan;
+                        var warna = getHistoryColor(data, kelurahan);
+                        var riwayatlayer;
+            
+                        //Menghilangkan efek higlight saat mouse out
+                        function resetHighlight(e) {
+                            riwayatlayer.resetStyle(e.target);
+                        }
+            
+                        //Menambahkan efek pada setiap layer
+                        var riwayatlayer = L.geoJson(value, {
+                            onEachFeature: function(features, layer) {
+                                layer.on({
+                                    mouseover: highlightFeature,
+                                    mouseout: resetHighlight,
+                                    click: zoomToFeature
+                                });
+                            },
+                            //Memberikan style dan getColorRiwayat
+                            style: function(features) {
+                                return {
+                                    weight: 2,
+                                    opacity: 1,
+                                    color: 'white', //default warna e iki
+                                    dashArray: '3',
+                                    fillOpacity: 0.7,
+                                    fillColor: warna
+                                };
+                            }
+            
+                        }).addTo(map);
+
+                        if(warna == ''){
+                            riwayatlayer.remove(map);
+                        }
+
+                        map.fitBounds(riwayatlayer.getBounds());
+            
+                        //Menambahkan pop out nama desa
+                        riwayatlayer.bindPopup(function(e) {
+                            return kelurahan;
+                        });
+                    });
+                });
+            } else {
+                riwayatlayer.remove(map);
+            }
+        });
+
+        //Menambahkan dan Menampilkan Peta Riwayat Longsor 2018
+        // idnya sama kan
+        document.getElementById("dataid10").addEventListener("change", function() {
+            if (document.getElementById(this.id).checked == true) {
+
+                document.getElementById('titleMode').innerText = 'Peta Riwayat Longsor 2018';
+
+                //Ambil geojson desa lamongan
+                getPetalongsor("2018", function(data) {
+
+                    $.each(me.dataKelurahan.features, function(num, value) {
+
+                        var kelurahan = value.properties.Kelurahan;
+                        var warna = getHistoryColor(data, kelurahan);
+                        var riwayatlayer;
+            
+                        //Menghilangkan efek higlight saat mouse out
+                        function resetHighlight(e) {
+                            riwayatlayer.resetStyle(e.target);
+                        }
+            
+                        //Menambahkan efek pada setiap layer
+                        var riwayatlayer = L.geoJson(value, {
+                            onEachFeature: function(features, layer) {
+                                layer.on({
+                                    mouseover: highlightFeature,
+                                    mouseout: resetHighlight,
+                                    click: zoomToFeature
+                                });
+                            },
+                            //Memberikan style dan getColorRiwayat
+                            style: function(features) {
+                                return {
+                                    weight: 2,
+                                    opacity: 1,
+                                    color: 'white', //default warna e iki
+                                    dashArray: '3',
+                                    fillOpacity: 0.7,
+                                    fillColor: warna
+                                };
+                            }
+            
+                        }).addTo(map);
+
+                        if(warna == ''){
+                            riwayatlayer.remove(map);
+                        }
+
+                        map.fitBounds(riwayatlayer.getBounds());
+            
+                        //Menambahkan pop out nama desa
+                        riwayatlayer.bindPopup(function(e) {
+                            return kelurahan;
+                        });
+                    });
+                });
+            } else {
+                riwayatlayer.remove(map);
+            }
+        });
+
+        //Menambahkan dan Menampilkan Peta Riwayat Longsor 2019
+        // idnya sama kan
+        document.getElementById("dataid11").addEventListener("change", function() {
+            if (document.getElementById(this.id).checked == true) {
+
+                document.getElementById('titleMode').innerText = 'Peta Riwayat Longsor 2019';
+
+                //Ambil geojson desa lamongan
+                getPetalongsor("2019", function(data) {
+
+                    $.each(me.dataKelurahan.features, function(num, value) {
+
+                        var kelurahan = value.properties.Kelurahan;
+                        var warna = getHistoryColor(data, kelurahan);
+                        var riwayatlayer;
+            
+                        //Menghilangkan efek higlight saat mouse out
+                        function resetHighlight(e) {
+                            riwayatlayer.resetStyle(e.target);
+                        }
+            
+                        //Menambahkan efek pada setiap layer
+                        var riwayatlayer = L.geoJson(value, {
+                            onEachFeature: function(features, layer) {
+                                layer.on({
+                                    mouseover: highlightFeature,
+                                    mouseout: resetHighlight,
+                                    click: zoomToFeature
+                                });
+                            },
+                            //Memberikan style dan getColorRiwayat
+                            style: function(features) {
+                                return {
+                                    weight: 2,
+                                    opacity: 1,
+                                    color: 'white', //default warna e iki
+                                    dashArray: '3',
+                                    fillOpacity: 0.7,
+                                    fillColor: warna
+                                };
+                            }
+            
+                        }).addTo(map);
+
+                        if(warna == ''){
+                            riwayatlayer.remove(map);
+                        }
+
+                        map.fitBounds(riwayatlayer.getBounds());
+            
+                        //Menambahkan pop out nama desa
+                        riwayatlayer.bindPopup(function(e) {
+                            return kelurahan;
+                        });
+                    });
+                });
+            } else {
+                riwayatlayer.remove(map);
+            }
+        });
+
         function getColorRiwayat(category) {
             //ini unuk colornya
             return 'tinggi' == category ? '#d64337' :
