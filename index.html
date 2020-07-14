@@ -106,13 +106,6 @@
                       <div class="checkbox dropdown-item"><label><input type="checkbox" id="dataid9" > Peta Riwayat Longsor 2017</label></div>
                       <div class="checkbox dropdown-item"><label><input type="checkbox" id="dataid10" > Peta Riwayat Longsor 2018</label></div>
                       <div class="checkbox dropdown-item"><label><input type="checkbox" id="dataid11" > Peta Riwayat Longsor 2019</label></div>
-                      <!-- Rawan Longsor -->
-                      <div class="checkbox dropdown-item"><label><input type="checkbox" id="dataid5" > Peta Rawan Longsor</label></div>
-                      <div class="checkbox dropdown-item"><label><input type="checkbox" id="dataid7" > Peta Rawan Longsor 2015</label></div>
-                      <div class="checkbox dropdown-item"><label><input type="checkbox" id="dataid1" > Peta Rawan Longsor 2016</label></div>
-                      <div class="checkbox dropdown-item"><label><input type="checkbox" id="dataid2" > Peta Rawan Longsor 2017</label></div>
-                      <div class="checkbox dropdown-item"><label><input type="checkbox" id="dataid3" > Peta Rawan Longsor 2018</label></div>
-                      <div class="checkbox dropdown-item"><label><input type="checkbox" id="dataid12" > Peta Rawan Longsor 2019</label></div>
                     </div>
                 </div>
               </div>
@@ -163,6 +156,8 @@
         function zoomToFeature(e) {
             map.fitBounds(e.target.getBounds());
         }
+
+        $.getJSON("https://monicakristania.github.io/riwayat_longsor/kelurahan.json", function(data) {
 
         //Menambahkan Layer Desa
         var me = this;
@@ -570,19 +565,33 @@
             //jadi data api dipanggil disini
             $.ajax({
                 type: 'GET',
-                url: 'http://monica.irvansyah.id/map/petalongsor/',
+                url: '/map/petalongsor/'+tahun,
                 dataType: 'json',
                 success: function (data) {
                     //disimpan dilocal storage datanya agar bisa dipanggil
-                    //  localStorage.removeItem('dataPneumonia');
+                     localStorage.removeItem('dataLongsor');
+                     localStorage.setItem('dataLongsor', JSON.stringify(data));
                     // localStorage.setItem('dataPneumonia', JSON.stringify(data.data2018.original));
                     // tidak perlu disimpan distorage karena tidak pernah dipanggil
-                
-                    handleData(JSON.stringify(data.data2015.original));
                 }
             });
-        }
 
+        //memanggil data localstore
+            var dataLongsor = localStorage.getItem('dataLongsor');
+            // console.log(JSON.parse(dataBanjir));
+            var color = '';
+            //ini disamakan datanyaa 
+            $.each(JSON.parse(dataLongsor), function(num, item) {
+                desaItem = item.title;
+                // console.log(item);
+                if (desa.toUpperCase() == desaItem.toUpperCase()) {
+                    color = item.riwayatlongsor_category;
+                    console.log(item.riwayatlongsor_category);
+                }
+            });
+
+            return color;
+        }
             // var color = '';
             //ini disamakan datanyaa 
             // $.each(dataLongsor, function(num, item) {
