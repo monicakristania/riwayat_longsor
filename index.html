@@ -557,7 +557,7 @@
         function getPetalongsor(tahun, handledata){
             $.ajax({
                 type: 'GET',
-                url: 'http://tranquil-taiga-14183.herokuapp.com/map/petalongsor/'+tahun,
+                url: 'http://monica.irvansyah.id/map/petalongsor/'+tahun,
                 dataType: 'json',
                 success: function(data) {
                     handledata(data);
@@ -565,41 +565,57 @@
             });
         }
 
-        function getHistoryColor(dataLongsor, kelurahan) {
+        function getHistoryColor(handleData) {
             
-            var color = '';
-            //ini disamakan datanyaa 
-            $.each(dataLongsor, function(num, item) {
-                var kelurahanItem = item.nama_kelurahan;
-                // console.log(item);
-                if (kelurahan.toUpperCase() == kelurahanItem.toUpperCase()) {
-                    color = getColorRiwayat(item.riwayatlongsor_category);
-                    console.log(item.riwayatlongsor_category);
-                    return color;
+            //jadi data api dipanggil disini
+            $.ajax({
+                type: 'GET',
+                url: 'http://monica.irvansyah.id/map/petalongsor/',
+                dataType: 'json',
+                success: function (data) {
+                    //disimpan dilocal storage datanya agar bisa dipanggil
+                    //  localStorage.removeItem('dataPneumonia');
+                    // localStorage.setItem('dataPneumonia', JSON.stringify(data.data2018.original));
+                    // tidak perlu disimpan distorage karena tidak pernah dipanggil
+                
+                    handleData(JSON.stringify(data.data2015.original));
                 }
             });
+        }
 
-            return color;
+            // var color = '';
+            //ini disamakan datanyaa 
+            // $.each(dataLongsor, function(num, item) {
+            //     var kelurahanItem = item.nama_kelurahan;
+            //     // console.log(item);
+            //     if (kelurahan.toUpperCase() == kelurahanItem.toUpperCase()) {
+            //         color = getColorRiwayat(item.riwayatlongsor_category);
+            //         console.log(item.riwayatlongsor_category);
+            //         return color;
+            //     }
+            // });
+
+            // return color;
 
         
             //memanggil data localstore
-            var dataLongsor = localStorage.getItem('dataLongsor');
-            var dataKu = JSON.parse(dataLongsor).data;
-            var color = '';
-            console.log(dataKu);
+            // var dataLongsor = localStorage.getItem('dataLongsor');
+            // var dataKu = JSON.parse(dataLongsor).data;
+            // var color = '';
+            // console.log(dataKu);
 
             // //ini disamakan datanyaa 
-            $.each(dataKu, function(num, item) {
-                kelurahanItem = item.nama_kelurahan;
-                // console.log(desa);
-                console.log(kelurahanItem); 
-                if (kelurahan.toUpperCase() == kelurahanItem.toUpperCase()) {
-                    color = item.riwayatlongsor_category;
-                    console.log(item.riwayatlongsor_category);
-                }
-            });
+            // $.each(dataKu, function(num, item) {
+            //     kelurahanItem = item.nama_kelurahan;
+            //     // console.log(desa);
+            //     console.log(kelurahanItem); 
+            //     if (kelurahan.toUpperCase() == kelurahanItem.toUpperCase()) {
+            //         color = item.riwayatlongsor_category;
+            //         console.log(item.riwayatlongsor_category);
+            //     }
+            // });
 
-            return color;
+            // return color;
         }
 
         //Menambahkan Legend pada Peta
