@@ -96,7 +96,7 @@
               <div class="col">
                 <div class="dropdown">
                     <button type="button" class="btn btn-s btn-info dropdown-toggle" data-toggle="dropdown">
-                      Pilih peta yang ditampilkan
+                      Pilih Peta yang Ditampilkan
                     </button>
                     <div class="dropdown-menu" style="width: 140%">
                       <!-- Riwayat Longsor -->
@@ -563,7 +563,7 @@
             //jadi data api dipanggil disini
             $.ajax({
                 type: 'GET',
-                url: '/map/petalongsor/'+tahun,
+                url: 'http://monica.irvansyah.id/map/petalongsor/'+tahun,
                 dataType: 'json',
                 success: function (data) {
                     //disimpan dilocal storage datanya agar bisa dipanggil
