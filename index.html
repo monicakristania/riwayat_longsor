@@ -558,21 +558,21 @@
             });
         }
 
-        function getHistoryColor(handleData) {
-            
-            //jadi data api dipanggil disini
-            $.ajax({
-                type: 'GET',
-                url: 'http://monica.irvansyah.id/map/petalongsor/'+tahun,
-                dataType: 'json',
-                success: function (data) {
-                    //disimpan dilocal storage datanya agar bisa dipanggil
-                     localStorage.removeItem('dataLongsor');
-                     localStorage.setItem('dataLongsor', JSON.stringify(data));
-                    // localStorage.setItem('dataPneumonia', JSON.stringify(data.data2018.original));
-                    // tidak perlu disimpan distorage karena tidak pernah dipanggil
+        function getHistoryColor(dataLongsor, kelurahan) { 
+            var color = '';
+            //ini disamakan datanyaa 
+            $.each(dataLongsor, function(num, item) {
+                var kelurahanItem = item.nama_kelurahan;
+                // console.log(item);
+                if (kelurahan.toUpperCase() == kelurahanItem.toUpperCase()) {
+                    color = getColorRiwayat(item.riwayatlongsor_category);
+                    console.log(item.riwayatlongsor_category);
+                    return color;
                 }
             });
+
+            return color;
+        
 
         //memanggil data localstore
             var dataLongsor = localStorage.getItem('dataLongsor');
