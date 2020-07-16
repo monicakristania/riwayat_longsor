@@ -195,14 +195,14 @@
                         }
             
                         //Menambahkan efek pada setiap layer
-                        // var riwayatlayer = L.geoJson(value, {
-                        //     onEachFeature: function(features, layer) {
-                        //         layer.on({
-                        //             mouseover: highlightFeature,
-                        //             mouseout: resetHighlight,
-                        //             click: zoomToFeature
-                        //         });
-                        //     },
+                        var riwayatlayer = L.geoJson(value, {
+                            onEachFeature: function(features, layer) {
+                                // layer.on({
+                                //     mouseover: highlightFeature,
+                                //     mouseout: resetHighlight,
+                                //     click: zoomToFeature
+                                // });
+                            },
                             //Memberikan style dan getColorRiwayat
                             style: function(features) {
                                 return {
