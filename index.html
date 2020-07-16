@@ -116,7 +116,7 @@
           <div id="divMap">
             <div class="row">
               <div class="col-md-12">     
-                <div id="mapid" style="width: 100%; height: 800px"></div>
+                <div id="mapid" style="width: 100%; height: 600px"></div>
               </div>
             </div><!-- /.row -->
           </div><!-- ./card-body -->
@@ -128,7 +128,7 @@
     <!-- <div id="mapid"></div> -->
 
     <script>
-        var map = L.map('mapid').setView([-8.169177, 111.161264], 11);
+        var map = L.map('mapid').setView([-8.1813138,111.0699922], 11);
 
         L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
             attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery Â© <a href="http://mapbox.com">Mapbox</a>',
@@ -591,41 +591,7 @@
 
             return color;
         }
-            // var color = '';
-            //ini disamakan datanyaa 
-            // $.each(dataLongsor, function(num, item) {
-            //     var kelurahanItem = item.nama_kelurahan;
-            //     // console.log(item);
-            //     if (kelurahan.toUpperCase() == kelurahanItem.toUpperCase()) {
-            //         color = getColorRiwayat(item.riwayatlongsor_category);
-            //         console.log(item.riwayatlongsor_category);
-            //         return color;
-            //     }
-            // });
-
-            // return color;
-
         
-            //memanggil data localstore
-            // var dataLongsor = localStorage.getItem('dataLongsor');
-            // var dataKu = JSON.parse(dataLongsor).data;
-            // var color = '';
-            // console.log(dataKu);
-
-            // //ini disamakan datanyaa 
-            // $.each(dataKu, function(num, item) {
-            //     kelurahanItem = item.nama_kelurahan;
-            //     // console.log(desa);
-            //     console.log(kelurahanItem); 
-            //     if (kelurahan.toUpperCase() == kelurahanItem.toUpperCase()) {
-            //         color = item.riwayatlongsor_category;
-            //         console.log(item.riwayatlongsor_category);
-            //     }
-            // });
-
-            // return color;
-        
-
         //Menambahkan Legend pada Peta
         var legend = L.control({
             position: 'bottomleft'
