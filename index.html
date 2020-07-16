@@ -128,11 +128,11 @@
     <!-- <div id="mapid"></div> -->
 
     <script>
-        var map = L.map('mapid').setView([-8.1813138,111.0699922], 5);
+        var map = L.map('mapid').setView([-8.169177, 111.161264], 11);
 
         L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
             attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery Â© <a href="http://mapbox.com">Mapbox</a>',
-            maxZoom: 10,
+            maxZoom: 18,
             id: 'mapbox.streets',
             accessToken: 'pk.eyJ1Ijoicnlhbjkzc3AiLCJhIjoiY2pkMDJxZ2xpMGxjYTJxbzRtd3EzZnRzcCJ9.WsRQpljGbYjxw7za2_cPtA'
         }).addTo(map);
@@ -198,7 +198,7 @@
                         var riwayatlayer = L.geoJson(value, {
                             onEachFeature: function(features, layer) {
                                 layer.on({
-                                    mouseover: highlightFeature,
+                                    // mouseover: highlightFeature,
                                     mouseout: resetHighlight,
                                     click: zoomToFeature
                                 });
